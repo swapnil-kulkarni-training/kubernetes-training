@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: onspecificnode
+spec:
+  containers:
+  - name: sise
+    image: coolsvap/simpleservice:0.5.0
+    ports:
+    - containerPort: 9876
+  nodeSelector:
+    run: here
+
+# kubectl label nodes <node> run=here
