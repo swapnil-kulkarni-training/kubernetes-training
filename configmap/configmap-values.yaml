@@ -4,5 +4,5 @@ metadata:
   name: special-config
   namespace: default
 data:
-  SPECIAL_LEVEL: very good
+  SPECIAL_LEVEL: nice
   SPECIAL_TYPE: charm

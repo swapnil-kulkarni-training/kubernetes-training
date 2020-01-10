@@ -9,6 +9,6 @@ spec:
     ports:
     - containerPort: 9876
   nodeSelector:
-    run: here
+    run: node-3
 
 # kubectl label nodes <node> run=here

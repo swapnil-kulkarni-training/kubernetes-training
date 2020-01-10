@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-deploy
+  name: tomcat
+  labels:
+    app: tomcat-dep
 spec:
-  replicas: 2
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tomcat-dep
   template:
     metadata:
       labels:
-        app: test
+        app: tomcat-dep
     spec:
       containers:
-      - name: web
-        image: nginx
+      - name: tomcatcontainer
+        image: tomcat
         ports:
-        - containerPort: 80
-        env:
-        - name: SIMPLE_SERVICE_VERSION
-          value: "1.0"
+        - containerPort: 8888

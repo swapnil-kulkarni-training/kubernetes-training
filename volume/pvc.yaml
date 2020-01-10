@@ -11,16 +11,16 @@ spec:
         value: "rootpasswd"
       volumeMounts:
       - mountPath: /var/lib/mysql
-        name: site-data
+        name: my-site-data
         subPath: mysql
     - name: php
       image: php:7.0-apache
       volumeMounts:
       - mountPath: /var/www/html
-        name: site-data
+        name: my-site-data
         subPath: html
     volumes:
-    - name: site-data
+    - name: my-site-data
       persistentVolumeClaim:
         claimName: my-lamp-site-data
 ---
@@ -38,3 +38,16 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: "/mnt/site-data"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: my-lamp-site-data
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+

@@ -42,7 +42,7 @@ spec:
       name: www
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "my-storage-class"
+      storageClassName: "manual"
       resources:
         requests:
           storage: 1Gi
