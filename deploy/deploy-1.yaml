@@ -19,3 +19,7 @@ spec:
         image: tomcat
         ports:
         - containerPort: 8888
+      resources:
+      limits:
+        memory: "64Mi"
+        cpu: "500m"
