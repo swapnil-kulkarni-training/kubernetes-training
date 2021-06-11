@@ -8,4 +8,8 @@ spec:
     image: nginx
     ports:
     - containerPort: 80
+    resources:
+      limits:
+        memory: "64Mi"
+        cpu: "500m"
 
