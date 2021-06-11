@@ -10,4 +10,7 @@ spec:
       - "bin/bash"
       - "-c"
       - "while true; do echo $(date) | tee /dev/stderr; sleep 1; done"
-
+    resources:
+      limits:
+        memory: "64Mi"
+        cpu: "500m"

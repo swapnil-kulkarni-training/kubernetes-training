@@ -4,7 +4,11 @@ metadata:
   name: firstpod
 spec:
   containers:
-  - name: simpleservice
-    image: nginx:1.14
+  - name: nginx
+    image: nginx
     ports:
     - containerPort: 80
+    resources:
+      limits:
+        memory: "64Mi"
+        cpu: "500m"
