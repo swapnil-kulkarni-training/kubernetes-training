@@ -10,6 +10,10 @@ spec:
       image: hashicorp/http-echo
       args:
         - "-text=pineapple"
+      resources:
+      limits:
+        memory: "64Mi"
+        cpu: "500m"
 
 ---
 

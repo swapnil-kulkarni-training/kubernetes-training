@@ -1,27 +1,32 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: example-ingress
   annotations:
-    ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-   - http:
+  - http:
       paths:
-        - path: /orange
-          backend:
-            serviceName: orange-service
-            servicePort: 5678
-        - path: /banana
-          backend:
-            serviceName: banana-service
-            servicePort: 5678
-        - path: /mango
-          backend:
-            serviceName: mango-service
-            servicePort: 5678
-        - path: /pineapple
-          backend:
-            serviceName: pineapple-service
-            servicePort: 5678
+      - path: /orange
+        pathType: Prefix
+        backend:
+          service:
+            name: orange-service
+            port:
+              number: 5678
+      - path: /mango
+        pathType: Prefix
+        backend:
+          service:
+            name: mango-service
+            port:
+              number: 5678
+      - path: /banana
+        pathType: Prefix
+        backend:
+          service:
+            name: banala-service
+            port:
+              number: 5678
